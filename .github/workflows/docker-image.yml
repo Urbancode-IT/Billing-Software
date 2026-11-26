@@ -28,7 +28,7 @@ jobs:
       IMAGE: ghcr.io/iamramgarhia/free-gst-billing
     steps:
       - name: Check out the release
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ env.TAG }}
 
