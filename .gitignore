@@ -19,8 +19,15 @@ release-build
 
 # Invoice data (personal/financial - keep local only)
 data/
+backend/data/
 Saved Invoices/
 Trash/
+backend/Saved Invoices/
+backend/Trash/
+.env
+
+# Embedded PostgreSQL (PGlite) files
+backend/data/pglite/
 
 # AI assistant context
 .claude/
@@ -45,8 +52,8 @@ public/tesseract/
 # Session scratch from other agent tooling — not part of the project
 .zcode
 
-# Built documentation site (regenerate with: node docs-site/build.mjs)
-docs-site/out/
+# Built documentation site (regenerate with: node tools/docs-site/build.mjs)
+backend/tools/docs-site/out/
 
 # Playwright MCP browser-tool scratch files
 .playwright-mcp/

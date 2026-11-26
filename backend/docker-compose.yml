@@ -1,0 +1,22 @@
+# Optional real PostgreSQL server (instead of embedded PGlite).
+# Usage:
+#   docker compose up -d
+#   set DATABASE_URL=postgres://freegst:freegst@127.0.0.1:5432/freegst
+#   npm run backend
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: freegst-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: freegst
+      POSTGRES_PASSWORD: freegst
+      POSTGRES_DB: freegst
+    ports:
+      - "5432:5432"
+    volumes:
+      - freegst_pgdata:/var/lib/postgresql/data
+      - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+
+volumes:
+  freegst_pgdata:

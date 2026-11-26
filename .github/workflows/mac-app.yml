@@ -29,10 +29,10 @@ jobs:
         run: npm ci --no-audit --no-fund
 
       - name: Build the app and the DMG
-        run: bash scripts/build-mac-app.sh release-build/mac
+        run: bash backend/tools/scripts/build-mac-app.sh release-build/mac
 
       - name: Smoke test (open the DMG, start the app, API, stop, start again)
-        run: bash scripts/test-mac-app.sh release-build/mac/Free-GST-Billing-Mac.dmg
+        run: bash backend/tools/scripts/test-mac-app.sh release-build/mac/Free-GST-Billing-Mac.dmg
 
       - uses: actions/upload-artifact@v4
         with:
